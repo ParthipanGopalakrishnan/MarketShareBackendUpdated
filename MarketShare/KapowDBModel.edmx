@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="KapowDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="usp_getAAIABrand" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Country" Type="varchar" Mode="In" />
+          <Parameter Name="DBName" Type="varchar" Mode="In" />
+          <Parameter Name="Category" Type="varchar(max)" Mode="In" />
+          <Parameter Name="SubCategory" Type="varchar(max)" Mode="In" />
+          <Parameter Name="PartTerminology" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="usp_getBrands" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Country" Type="varchar" Mode="In" />
+          <Parameter Name="DBName" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_getBrandsdata" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Country" Type="varchar" Mode="In" />
+          <Parameter Name="DBName" Type="varchar" Mode="In" />
+          <Parameter Name="Brand" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="usp_getCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Country" Type="varchar" Mode="In" />
+          <Parameter Name="DBName" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_getCategorydata" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Country" Type="varchar" Mode="In" />
+          <Parameter Name="DBName" Type="varchar" Mode="In" />
+          <Parameter Name="Category" Type="varchar(max)" Mode="In" />
+          <Parameter Name="SubCategory" Type="varchar(max)" Mode="In" />
+          <Parameter Name="PartTerminology" Type="varchar(max)" Mode="In" />
+          <Parameter Name="AAIABrand" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="usp_getPartNumbersdata" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Country" Type="varchar" Mode="In" />
+          <Parameter Name="DBName" Type="varchar" Mode="In" />
+          <Parameter Name="PartNumber" Type="varchar(max)" Mode="In" />
+          <Parameter Name="SearchScope" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="usp_getPartTerminology" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Country" Type="varchar" Mode="In" />
+          <Parameter Name="DBName" Type="varchar" Mode="In" />
+          <Parameter Name="Category" Type="varchar(max)" Mode="In" />
+          <Parameter Name="SubCategory" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="usp_getSubCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Country" Type="varchar" Mode="In" />
+          <Parameter Name="DBName" Type="varchar" Mode="In" />
+          <Parameter Name="Category" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="usp_getVehiclesdata" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Country" Type="varchar" Mode="In" />
+          <Parameter Name="DBName" Type="varchar" Mode="In" />
+          <Parameter Name="Year" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Make" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Model" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Engine" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="usp_getVehiclesEngine" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Country" Type="varchar" Mode="In" />
+          <Parameter Name="DBName" Type="varchar" Mode="In" />
+          <Parameter Name="Year" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Make" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Model" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="usp_getVehiclesMake" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Country" Type="varchar" Mode="In" />
+          <Parameter Name="DBName" Type="varchar" Mode="In" />
+          <Parameter Name="Year" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="usp_getVehiclesModel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Country" Type="varchar" Mode="In" />
+          <Parameter Name="DBName" Type="varchar" Mode="In" />
+          <Parameter Name="Year" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Make" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="usp_getVehiclesYear" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Country" Type="varchar" Mode="In" />
+          <Parameter Name="DBName" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="KapowDBModelStoreContainer" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KapowDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="KapowDBEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="usp_getVehiclesdata" ReturnType="Collection(KapowDBModel.usp_getVehiclesdata_Result)">
+            <Parameter Name="Country" Mode="In" Type="String" />
+            <Parameter Name="DBName" Mode="In" Type="String" />
+            <Parameter Name="Year" Mode="In" Type="String" />
+            <Parameter Name="Make" Mode="In" Type="String" />
+            <Parameter Name="Model" Mode="In" Type="String" />
+            <Parameter Name="Engine" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_getVehiclesEngine" ReturnType="Collection(String)">
+            <Parameter Name="Country" Mode="In" Type="String" />
+            <Parameter Name="DBName" Mode="In" Type="String" />
+            <Parameter Name="Year" Mode="In" Type="String" />
+            <Parameter Name="Make" Mode="In" Type="String" />
+            <Parameter Name="Model" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_getVehiclesMake" ReturnType="Collection(String)">
+            <Parameter Name="Country" Mode="In" Type="String" />
+            <Parameter Name="DBName" Mode="In" Type="String" />
+            <Parameter Name="Year" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_getVehiclesModel" ReturnType="Collection(String)">
+            <Parameter Name="Country" Mode="In" Type="String" />
+            <Parameter Name="DBName" Mode="In" Type="String" />
+            <Parameter Name="Year" Mode="In" Type="String" />
+            <Parameter Name="Make" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_getVehiclesYear" ReturnType="Collection(Int32)">
+            <Parameter Name="Country" Mode="In" Type="String" />
+            <Parameter Name="DBName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_getBrands" ReturnType="Collection(String)">
+            <Parameter Name="Country" Mode="In" Type="String" />
+            <Parameter Name="DBName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_getBrandsdata" ReturnType="Collection(KapowDBModel.usp_getBrandsdata_Result)">
+            <Parameter Name="Country" Mode="In" Type="String" />
+            <Parameter Name="DBName" Mode="In" Type="String" />
+            <Parameter Name="Brand" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_getAAIABrand" ReturnType="Collection(String)">
+            <Parameter Name="Country" Mode="In" Type="String" />
+            <Parameter Name="DBName" Mode="In" Type="String" />
+            <Parameter Name="Category" Mode="In" Type="String" />
+            <Parameter Name="SubCategory" Mode="In" Type="String" />
+            <Parameter Name="PartTerminology" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_getBrandData" ReturnType="Collection(KapowDBModel.usp_getBrandData_Result)">
+            <Parameter Name="Country" Mode="In" Type="String" />
+            <Parameter Name="Category" Mode="In" Type="String" />
+            <Parameter Name="SubCategory" Mode="In" Type="String" />
+            <Parameter Name="PartTerminology" Mode="In" Type="String" />
+            <Parameter Name="AAIABrand" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_getCategory" ReturnType="Collection(String)" >
+            <Parameter Name="Country" Mode="In" Type="String" />
+            <Parameter Name="DBName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_getPartTerminology" ReturnType="Collection(String)">
+            <Parameter Name="Country" Mode="In" Type="String" />
+            <Parameter Name="DBName" Mode="In" Type="String" />
+            <Parameter Name="Category" Mode="In" Type="String" />
+            <Parameter Name="SubCategory" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_getSubCategory" ReturnType="Collection(String)">
+            <Parameter Name="Country" Mode="In" Type="String" />
+            <Parameter Name="DBName" Mode="In" Type="String" />
+            <Parameter Name="Category" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_getCategorydata" ReturnType="Collection(KapowDBModel.usp_getCategorydata_Result)">
+            <Parameter Name="Country" Mode="In" Type="String" />
+            <Parameter Name="DBName" Mode="In" Type="String" />
+            <Parameter Name="Category" Mode="In" Type="String" />
+            <Parameter Name="SubCategory" Mode="In" Type="String" />
+            <Parameter Name="PartTerminology" Mode="In" Type="String" />
+            <Parameter Name="AAIABrand" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_getPartNumbersdata" ReturnType="Collection(KapowDBModel.usp_getPartNumbersdata_Result)">
+            <Parameter Name="Country" Mode="In" Type="String" />
+            <Parameter Name="DBName" Mode="In" Type="String" />
+            <Parameter Name="PartNumber" Mode="In" Type="String" />
+            <Parameter Name="SearchScope" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="usp_getVehiclesdata_Result">
+          <Property Type="String" Name="CustomerPartNumber" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="PartNumber" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="PartTerminologyName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="YearID" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="MakeName" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="ModelName" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Engine" Nullable="false" MaxLength="519" />
+          <Property Type="String" Name="Brand" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Distributor" Nullable="true" MaxLength="250" />
+          <Property Name="TransactionCount" Type="Int32" />
+          <Property Name="AvgPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="MedianPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="MinPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="MaxPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="StandardDeviationPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="VariancePrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="SumPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="AvgCorePrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="DateTime" Name="PriceDate" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_getBrandsdata_Result">
+          <Property Type="String" Name="CustomerPartNumber" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="PartNumber" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="PartTerminologyName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="YearID" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="MakeName" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="ModelName" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Engine" Nullable="false" MaxLength="519" />
+          <Property Type="String" Name="Brand" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Distributor" Nullable="true" MaxLength="250" />
+          <Property Name="TransactionCount" Type="Int32" />
+          <Property Name="AvgPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="MedianPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="MinPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="MaxPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="StandardDeviationPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="VariancePrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="SumPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="AvgCorePrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="DateTime" Name="PriceDate" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_getBrandData_Result">
+          <Property Type="String" Name="CustomerPartNumber" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="PartNumber" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="PartTerminologyName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="YearID" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="MakeName" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="ModelName" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Engine" Nullable="false" MaxLength="519" />
+          <Property Type="String" Name="Brand" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Distributor" Nullable="true" MaxLength="250" />
+          <Property Name="TransactionCount" Type="Int32" />
+          <Property Name="AvgPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="MedianPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="MinPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="MaxPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="StandardDeviationPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="VariancePrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="SumPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="AvgCorePrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="DateTime" Name="PriceDate" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_getCategorydata_Result">
+          <Property Type="String" Name="CustomerPartNumber" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="PartNumber" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="PartTerminologyName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="YearID" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="MakeName" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="ModelName" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Engine" Nullable="false" MaxLength="519" />
+          <Property Type="String" Name="Brand" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Distributor" Nullable="true" MaxLength="250" />
+          <Property Name="TransactionCount" Type="Int32" />
+          <Property Name="AvgPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="MedianPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="MinPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="MaxPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="StandardDeviationPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="VariancePrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="SumPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="AvgCorePrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="DateTime" Name="PriceDate" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_getPartNumbersdata_Result">
+          <Property Type="String" Name="CustomerPartNumber" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="PartNumber" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="PartTerminologyName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="YearID" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="MakeName" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="ModelName" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Engine" Nullable="false" MaxLength="519" />
+          <Property Type="String" Name="Brand" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Distributor" Nullable="true" MaxLength="250" />
+          <Property Name="TransactionCount" Type="Int32" />
+          <Property Name="AvgPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="MedianPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="MinPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="MaxPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="StandardDeviationPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="VariancePrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="SumPrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Name="AvgCorePrice" Type="Decimal" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="DateTime" Name="PriceDate" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KapowDBModelStoreContainer" CdmEntityContainer="KapowDBEntities" >
+          <FunctionImportMapping FunctionImportName="usp_getVehiclesdata" FunctionName="KapowDBModel.Store.usp_getVehiclesdata">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KapowDBModel.usp_getVehiclesdata_Result">
+                <ScalarProperty Name="CustomerPartNumber" ColumnName="CustomerPartNumber" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+                <ScalarProperty Name="PartTerminologyName" ColumnName="PartTerminologyName" />
+                <ScalarProperty Name="YearID" ColumnName="YearID" />
+                <ScalarProperty Name="MakeName" ColumnName="MakeName" />
+                <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+                <ScalarProperty Name="Engine" ColumnName="Engine" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="Distributor" ColumnName="Distributor" />
+                <ScalarProperty Name="TransactionCount" ColumnName="TransactionCount" />
+                <ScalarProperty Name="AvgPrice" ColumnName="AvgPrice" />
+                <ScalarProperty Name="MedianPrice" ColumnName="MedianPrice" />
+                <ScalarProperty Name="MinPrice" ColumnName="MinPrice" />
+                <ScalarProperty Name="MaxPrice" ColumnName="MaxPrice" />
+                <ScalarProperty Name="StandardDeviationPrice" ColumnName="StandardDeviationPrice" />
+                <ScalarProperty Name="VariancePrice" ColumnName="VariancePrice" />
+                <ScalarProperty Name="SumPrice" ColumnName="SumPrice" />
+                <ScalarProperty Name="AvgCorePrice" ColumnName="AvgCorePrice" />
+                <ScalarProperty Name="PriceDate" ColumnName="PriceDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_getVehiclesEngine" FunctionName="KapowDBModel.Store.usp_getVehiclesEngine" />
+          <FunctionImportMapping FunctionImportName="usp_getVehiclesMake" FunctionName="KapowDBModel.Store.usp_getVehiclesMake" />
+          <FunctionImportMapping FunctionImportName="usp_getVehiclesModel" FunctionName="KapowDBModel.Store.usp_getVehiclesModel" />
+          <FunctionImportMapping FunctionImportName="usp_getVehiclesYear" FunctionName="KapowDBModel.Store.usp_getVehiclesYear" />
+          <FunctionImportMapping FunctionImportName="usp_getBrands" FunctionName="KapowDBModel.Store.usp_getBrands" />
+          <FunctionImportMapping FunctionImportName="usp_getBrandsdata" FunctionName="KapowDBModel.Store.usp_getBrandsdata">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KapowDBModel.usp_getBrandsdata_Result">
+                <ScalarProperty Name="CustomerPartNumber" ColumnName="CustomerPartNumber" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+                <ScalarProperty Name="PartTerminologyName" ColumnName="PartTerminologyName" />
+                <ScalarProperty Name="YearID" ColumnName="YearID" />
+                <ScalarProperty Name="MakeName" ColumnName="MakeName" />
+                <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+                <ScalarProperty Name="Engine" ColumnName="Engine" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="Distributor" ColumnName="Distributor" />
+                <ScalarProperty Name="TransactionCount" ColumnName="TransactionCount" />
+                <ScalarProperty Name="AvgPrice" ColumnName="AvgPrice" />
+                <ScalarProperty Name="MedianPrice" ColumnName="MedianPrice" />
+                <ScalarProperty Name="MinPrice" ColumnName="MinPrice" />
+                <ScalarProperty Name="MaxPrice" ColumnName="MaxPrice" />
+                <ScalarProperty Name="StandardDeviationPrice" ColumnName="StandardDeviationPrice" />
+                <ScalarProperty Name="VariancePrice" ColumnName="VariancePrice" />
+                <ScalarProperty Name="SumPrice" ColumnName="SumPrice" />
+                <ScalarProperty Name="AvgCorePrice" ColumnName="AvgCorePrice" />
+                <ScalarProperty Name="PriceDate" ColumnName="PriceDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_getAAIABrand" FunctionName="KapowDBModel.Store.usp_getAAIABrand" />
+          <FunctionImportMapping FunctionImportName="usp_getCategory" FunctionName="KapowDBModel.Store.usp_getCategory" />
+          <FunctionImportMapping FunctionImportName="usp_getPartTerminology" FunctionName="KapowDBModel.Store.usp_getPartTerminology" />
+          <FunctionImportMapping FunctionImportName="usp_getSubCategory" FunctionName="KapowDBModel.Store.usp_getSubCategory" />
+          <FunctionImportMapping FunctionImportName="usp_getCategorydata" FunctionName="KapowDBModel.Store.usp_getCategorydata">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KapowDBModel.usp_getCategorydata_Result">
+                <ScalarProperty Name="CustomerPartNumber" ColumnName="CustomerPartNumber" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+                <ScalarProperty Name="PartTerminologyName" ColumnName="PartTerminologyName" />
+                <ScalarProperty Name="YearID" ColumnName="YearID" />
+                <ScalarProperty Name="MakeName" ColumnName="MakeName" />
+                <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+                <ScalarProperty Name="Engine" ColumnName="Engine" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="Distributor" ColumnName="Distributor" />
+                <ScalarProperty Name="TransactionCount" ColumnName="TransactionCount" />
+                <ScalarProperty Name="AvgPrice" ColumnName="AvgPrice" />
+                <ScalarProperty Name="MedianPrice" ColumnName="MedianPrice" />
+                <ScalarProperty Name="MinPrice" ColumnName="MinPrice" />
+                <ScalarProperty Name="MaxPrice" ColumnName="MaxPrice" />
+                <ScalarProperty Name="StandardDeviationPrice" ColumnName="StandardDeviationPrice" />
+                <ScalarProperty Name="VariancePrice" ColumnName="VariancePrice" />
+                <ScalarProperty Name="SumPrice" ColumnName="SumPrice" />
+                <ScalarProperty Name="AvgCorePrice" ColumnName="AvgCorePrice" />
+                <ScalarProperty Name="PriceDate" ColumnName="PriceDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_getPartNumbersdata" FunctionName="KapowDBModel.Store.usp_getPartNumbersdata">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KapowDBModel.usp_getPartNumbersdata_Result">
+                <ScalarProperty Name="CustomerPartNumber" ColumnName="CustomerPartNumber" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+                <ScalarProperty Name="PartTerminologyName" ColumnName="PartTerminologyName" />
+                <ScalarProperty Name="YearID" ColumnName="YearID" />
+                <ScalarProperty Name="MakeName" ColumnName="MakeName" />
+                <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+                <ScalarProperty Name="Engine" ColumnName="Engine" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="Distributor" ColumnName="Distributor" />
+                <ScalarProperty Name="TransactionCount" ColumnName="TransactionCount" />
+                <ScalarProperty Name="AvgPrice" ColumnName="AvgPrice" />
+                <ScalarProperty Name="MedianPrice" ColumnName="MedianPrice" />
+                <ScalarProperty Name="MinPrice" ColumnName="MinPrice" />
+                <ScalarProperty Name="MaxPrice" ColumnName="MaxPrice" />
+                <ScalarProperty Name="StandardDeviationPrice" ColumnName="StandardDeviationPrice" />
+                <ScalarProperty Name="VariancePrice" ColumnName="VariancePrice" />
+                <ScalarProperty Name="SumPrice" ColumnName="SumPrice" />
+                <ScalarProperty Name="AvgCorePrice" ColumnName="AvgCorePrice" />
+                <ScalarProperty Name="PriceDate" ColumnName="PriceDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

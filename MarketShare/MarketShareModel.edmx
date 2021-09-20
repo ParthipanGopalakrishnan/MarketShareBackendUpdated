@@ -1,0 +1,1204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MarketShareModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="CountryCode" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="DefaultCurrencyCode" Type="char" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Currency">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="CurrencyCode" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CPM_C8_DEV.dbo.CategoryView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CategoryView">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Category" Type="nvarchar" MaxLength="250" />
+          <Property Name="PartNumber" Type="nvarchar" MaxLength="250" />
+          <Property Name="VIODemand" Type="int" />
+          <Property Name="MarketPotential" Type="int" />
+          <Property Name="Customer 12M Sales" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Market Share %" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="CountryStr" Type="varchar" MaxLength="2" />
+          <Property Name="CurrencyStr" Type="varchar" MaxLength="3" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CPM_C8_DEV.dbo.ModelViewAgeDistribution' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ModelViewAgeDistribution">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Year" Type="int" />
+          <Property Name="MarketPotential" Type="bigint" />
+          <Property Name="VIODemand" Type="bigint" />
+          <Property Name="CountryStr" Type="varchar" MaxLength="2" />
+          <Property Name="CurrencyStr" Type="varchar" MaxLength="3" />
+          <Property Name="Category" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CPM_C8_DEV.dbo.ModelViewGlobal' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ModelViewGlobal">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="nvarchar" MaxLength="250" />
+          <Property Name="Year" Type="int" />
+          <Property Name="Make" Type="nvarchar" MaxLength="250" />
+          <Property Name="Model" Type="nvarchar" MaxLength="250" />
+          <Property Name="VIODemand" Type="bigint" />
+          <Property Name="MarketPotential" Type="bigint" />
+          <Property Name="CountryStr" Type="varchar" MaxLength="2" />
+          <Property Name="CurrencyStr" Type="varchar" MaxLength="3" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CPM_C8_DEV.dbo.ModelViewPartNumber' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ModelViewPartNumber">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="nvarchar" MaxLength="250" />
+          <Property Name="PartNumber" Type="nvarchar" MaxLength="250" />
+          <Property Name="Year" Type="int" />
+          <Property Name="Make" Type="nvarchar" MaxLength="250" />
+          <Property Name="Model" Type="nvarchar" MaxLength="250" />
+          <Property Name="SubModel" Type="nvarchar" MaxLength="250" />
+          <Property Name="VIODemand" Type="bigint" />
+          <Property Name="MarketPotential" Type="bigint" />
+          <Property Name="Sum of Customer 12M Sales Market Share" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Customer 12M Sales Distribution" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="CountryStr" Type="varchar" MaxLength="2" />
+          <Property Name="CurrencyStr" Type="varchar" MaxLength="3" />
+          <Property Name="Customer 12M Sales" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CPM_C8_DEV.dbo.PartNumberView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PartNumberView">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="nvarchar" MaxLength="250" />
+          <Property Name="PartNumber" Type="nvarchar" MaxLength="250" />
+          <Property Name="Year" Type="int" />
+          <Property Name="Make" Type="nvarchar" MaxLength="250" />
+          <Property Name="Model" Type="nvarchar" MaxLength="250" />
+          <Property Name="SubModel" Type="nvarchar" MaxLength="250" />
+          <Property Name="VIODemand" Type="int" />
+          <Property Name="MarketPotential" Type="int" />
+          <Property Name="Customer 12M Sales" Type="int" />
+          <Property Name="Customer 12M Sales Market Share" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Customer 12M Sales Distribution" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="CountryStr" Type="varchar" MaxLength="2" />
+          <Property Name="CurrencyStr" Type="varchar" MaxLength="3" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CPM_C8_DEV.dbo.PartsPotentialCategory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PartsPotentialCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="250" />
+          <Property Name="Database%" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="PartCount" Type="int" />
+          <Property Name="RevCoverage" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="MarketShare%" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="CountryStr" Type="varchar" MaxLength="2" />
+          <Property Name="CurrencyStr" Type="varchar" MaxLength="3" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CPM_C8_DEV.dbo.PartsPotentialDashboard' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PartsPotentialDashboard">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dashboard" Type="nvarchar" MaxLength="250" />
+          <Property Name="VIOCoverage" Type="int" />
+          <Property Name="MarketPotential" Type="int" />
+          <Property Name="PartGroup" Type="int" />
+          <Property Name="PartNumber" Type="int" />
+          <Property Name="VehicleCount" Type="int" />
+          <Property Name="RevenueCoverage" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MarketShare" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="CountryStr" Type="varchar" MaxLength="2" />
+          <Property Name="CurrencyStr" Type="varchar" MaxLength="3" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CPM_C8_DEV.dbo.PartsPotentialStandardCategory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PartsPotentialStandardCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="250" />
+          <Property Name="MarketPotential" Type="bigint" />
+          <Property Name="MarketPotentialDatabase%" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="CountryStr" Type="varchar" MaxLength="2" />
+          <Property Name="CurrencyStr" Type="varchar" MaxLength="3" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CPM_C8_DEV.dbo.PartsPotentialVIOCoverageAge' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PartsPotentialVIOCoverageAge">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DistributionLevel" Type="nvarchar" MaxLength="250" />
+          <Property Name="AGEDistribution%" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="CountryStr" Type="varchar" MaxLength="2" />
+          <Property Name="CurrencyStr" Type="varchar" MaxLength="3" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CPM_C8_DEV.dbo.PartsPotentialVIOCoverageAgeGlobal' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PartsPotentialVIOCoverageAgeGlobal">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DistributionLevel" Type="nvarchar" MaxLength="250" />
+          <Property Name="AGEDistribution%" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="CountryStr" Type="varchar" MaxLength="2" />
+          <Property Name="CurrencyStr" Type="varchar" MaxLength="3" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CPM_C8_DEV.dbo.PartsPotentialVIOCoverageBrand' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PartsPotentialVIOCoverageBrand">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Brand" Type="nvarchar" MaxLength="250" />
+          <Property Name="Distribution%" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="VIOCoverage" Type="bigint" />
+          <Property Name="CountryStr" Type="varchar" MaxLength="2" />
+          <Property Name="CurrencyStr" Type="varchar" MaxLength="3" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CPM_C8_DEV.dbo.PartsPotentialVIOCoverageBrandGlobal' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PartsPotentialVIOCoverageBrandGlobal">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Brand" Type="nvarchar" MaxLength="250" />
+          <Property Name="Distribution%" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="VIOCoverage" Type="bigint" />
+          <Property Name="CountryStr" Type="varchar" MaxLength="2" />
+          <Property Name="CurrencyStr" Type="varchar" MaxLength="3" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CPM_C8_DEV.dbo.t_IntelligenceViewData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="t_IntelligenceViewData">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="CountryStr" />
+            <PropertyRef Name="Country" />
+            <PropertyRef Name="CurrencyCode" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryStr" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="CurrencyCode" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="CustomerPartId" Type="bigint" />
+          <Property Name="PartNo" Type="nvarchar" MaxLength="128" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+          <Property Name="Category" Type="nvarchar" MaxLength="256" />
+          <Property Name="SubCategory" Type="nvarchar" MaxLength="256" />
+          <Property Name="VehicleName" Type="nvarchar" MaxLength="256" />
+          <Property Name="List Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ACP/Online Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="NET Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Core Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Installer Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="OEMAvgList Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="OEMAvgACP/Online Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="OEMAvgNET Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="OEMAvgCore Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="OEMAvgInstaller Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IAMAvgList Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IAMAvgACP/Online Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IAMAvgNET Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IAMAvgCore Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IAMAvgInstaller Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="VIO Demand" Type="bigint" />
+          <Property Name="Market Potential" Type="bigint" />
+          <Property Name="Market Share" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Customer 12M Sales" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="OEM Price Trend" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IAM Price Trend" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="VIO Demand Trend" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Market Potential Trend" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Market Share Trend" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Customer 12M Sales Trend" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CurrencyStr" Type="varchar" MaxLength="3" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CPM_C8_DEV.whidata.DistributorPrice' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DistributorPrice">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="RefID" />
+            <PropertyRef Name="PriceValue" />
+            <PropertyRef Name="PriceTypeID" />
+            <PropertyRef Name="PriceDate" />
+            <PropertyRef Name="CountryId" />
+            <PropertyRef Name="CurrencyId" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RefID" Type="bigint" Nullable="false" />
+          <Property Name="PriceValue" Type="decimal" Precision="18" Scale="6" Nullable="false" />
+          <Property Name="PriceTypeID" Type="int" Nullable="false" />
+          <Property Name="PriceDate" Type="date" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="CurrencyId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DistributorPriceAggregation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RefId" Type="bigint" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="CurrencyId" Type="int" Nullable="false" />
+          <Property Name="PriceTypeId" Type="int" Nullable="false" />
+          <Property Name="TransactionCount" Type="int" />
+          <Property Name="MinimumPrice" Type="decimal" Precision="18" Scale="6" />
+          <Property Name="MaximumPrice" Type="decimal" Precision="18" Scale="6" />
+          <Property Name="AveragePrice" Type="decimal" Precision="18" Scale="6" />
+          <Property Name="MedianPrice" Type="decimal" Precision="18" Scale="6" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CPM_C8_DEV.whidata.WHIAppConfig' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="WHIAppConfig">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="DBString" />
+            <PropertyRef Name="Condition" />
+            <PropertyRef Name="ConditionValue" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DBString" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Condition" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="ConditionValue" Type="nvarchar" MaxLength="4000" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CPM_C8_DEV.whidata.ReferenceData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ReferenceData">
+          <Key>
+            <PropertyRef Name="PartID" />
+            <PropertyRef Name="Wholesaler" />
+            <PropertyRef Name="Brand" />
+          </Key>
+          <Property Name="PartID" Type="bigint" Nullable="false" />
+          <Property Name="Partnumber" Type="nvarchar" MaxLength="100" />
+          <Property Name="Wholesaler" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Brand" Type="nvarchar" MaxLength="378" Nullable="false" />
+          <Property Name="PartDescription" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityContainer Name="MarketShareModelStoreContainer">
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="base" store:Type="Tables" />
+          <EntitySet Name="Currency" EntityType="Self.Currency" Schema="base" store:Type="Tables" />
+          <EntitySet Name="DistributorPriceAggregation" EntityType="Self.DistributorPriceAggregation" Schema="whidata" store:Type="Tables" />
+          <EntitySet Name="CategoryView" EntityType="Self.CategoryView" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CategoryView].[ID] AS [ID], 
+    [CategoryView].[Category] AS [Category], 
+    [CategoryView].[PartNumber] AS [PartNumber], 
+    [CategoryView].[VIODemand] AS [VIODemand], 
+    [CategoryView].[MarketPotential] AS [MarketPotential], 
+    [CategoryView].[Customer 12M Sales] AS [Customer 12M Sales], 
+    [CategoryView].[Market Share %] AS [Market Share %], 
+    [CategoryView].[CountryStr] AS [CountryStr], 
+    [CategoryView].[CurrencyStr] AS [CurrencyStr]
+    FROM [dbo].[CategoryView] AS [CategoryView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ModelViewAgeDistribution" EntityType="Self.ModelViewAgeDistribution" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ModelViewAgeDistribution].[ID] AS [ID], 
+    [ModelViewAgeDistribution].[Year] AS [Year], 
+    [ModelViewAgeDistribution].[MarketPotential] AS [MarketPotential], 
+    [ModelViewAgeDistribution].[VIODemand] AS [VIODemand], 
+    [ModelViewAgeDistribution].[CountryStr] AS [CountryStr], 
+    [ModelViewAgeDistribution].[CurrencyStr] AS [CurrencyStr], 
+    [ModelViewAgeDistribution].[Category] AS [Category]
+    FROM [dbo].[ModelViewAgeDistribution] AS [ModelViewAgeDistribution]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ModelViewGlobal" EntityType="Self.ModelViewGlobal" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ModelViewGlobal].[ID] AS [ID], 
+    [ModelViewGlobal].[Category] AS [Category], 
+    [ModelViewGlobal].[Year] AS [Year], 
+    [ModelViewGlobal].[Make] AS [Make], 
+    [ModelViewGlobal].[Model] AS [Model], 
+    [ModelViewGlobal].[VIODemand] AS [VIODemand], 
+    [ModelViewGlobal].[MarketPotential] AS [MarketPotential], 
+    [ModelViewGlobal].[CountryStr] AS [CountryStr], 
+    [ModelViewGlobal].[CurrencyStr] AS [CurrencyStr]
+    FROM [dbo].[ModelViewGlobal] AS [ModelViewGlobal]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ModelViewPartNumber" EntityType="Self.ModelViewPartNumber" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ModelViewPartNumber].[ID] AS [ID], 
+    [ModelViewPartNumber].[Category] AS [Category], 
+    [ModelViewPartNumber].[PartNumber] AS [PartNumber], 
+    [ModelViewPartNumber].[Year] AS [Year], 
+    [ModelViewPartNumber].[Make] AS [Make], 
+    [ModelViewPartNumber].[Model] AS [Model], 
+    [ModelViewPartNumber].[SubModel] AS [SubModel], 
+    [ModelViewPartNumber].[VIODemand] AS [VIODemand], 
+    [ModelViewPartNumber].[MarketPotential] AS [MarketPotential], 
+    [ModelViewPartNumber].[Sum of Customer 12M Sales Market Share] AS [Sum of Customer 12M Sales Market Share], 
+    [ModelViewPartNumber].[Customer 12M Sales Distribution] AS [Customer 12M Sales Distribution], 
+    [ModelViewPartNumber].[CountryStr] AS [CountryStr], 
+    [ModelViewPartNumber].[CurrencyStr] AS [CurrencyStr], 
+    [ModelViewPartNumber].[Customer 12M Sales] AS [Customer 12M Sales]
+    FROM [dbo].[ModelViewPartNumber] AS [ModelViewPartNumber]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PartNumberView" EntityType="Self.PartNumberView" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PartNumberView].[ID] AS [ID], 
+    [PartNumberView].[Category] AS [Category], 
+    [PartNumberView].[PartNumber] AS [PartNumber], 
+    [PartNumberView].[Year] AS [Year], 
+    [PartNumberView].[Make] AS [Make], 
+    [PartNumberView].[Model] AS [Model], 
+    [PartNumberView].[SubModel] AS [SubModel], 
+    [PartNumberView].[VIODemand] AS [VIODemand], 
+    [PartNumberView].[MarketPotential] AS [MarketPotential], 
+    [PartNumberView].[Customer 12M Sales] AS [Customer 12M Sales], 
+    [PartNumberView].[Customer 12M Sales Market Share] AS [Customer 12M Sales Market Share], 
+    [PartNumberView].[Customer 12M Sales Distribution] AS [Customer 12M Sales Distribution], 
+    [PartNumberView].[CountryStr] AS [CountryStr], 
+    [PartNumberView].[CurrencyStr] AS [CurrencyStr]
+    FROM [dbo].[PartNumberView] AS [PartNumberView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PartsPotentialCategory" EntityType="Self.PartsPotentialCategory" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PartsPotentialCategory].[ID] AS [ID], 
+    [PartsPotentialCategory].[CategoryName] AS [CategoryName], 
+    [PartsPotentialCategory].[Database%] AS [Database%], 
+    [PartsPotentialCategory].[PartCount] AS [PartCount], 
+    [PartsPotentialCategory].[RevCoverage] AS [RevCoverage], 
+    [PartsPotentialCategory].[MarketShare%] AS [MarketShare%], 
+    [PartsPotentialCategory].[CountryStr] AS [CountryStr], 
+    [PartsPotentialCategory].[CurrencyStr] AS [CurrencyStr]
+    FROM [dbo].[PartsPotentialCategory] AS [PartsPotentialCategory]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PartsPotentialDashboard" EntityType="Self.PartsPotentialDashboard" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PartsPotentialDashboard].[ID] AS [ID], 
+    [PartsPotentialDashboard].[Dashboard] AS [Dashboard], 
+    [PartsPotentialDashboard].[VIOCoverage] AS [VIOCoverage], 
+    [PartsPotentialDashboard].[MarketPotential] AS [MarketPotential], 
+    [PartsPotentialDashboard].[PartGroup] AS [PartGroup], 
+    [PartsPotentialDashboard].[PartNumber] AS [PartNumber], 
+    [PartsPotentialDashboard].[VehicleCount] AS [VehicleCount], 
+    [PartsPotentialDashboard].[RevenueCoverage] AS [RevenueCoverage], 
+    [PartsPotentialDashboard].[MarketShare] AS [MarketShare], 
+    [PartsPotentialDashboard].[CountryStr] AS [CountryStr], 
+    [PartsPotentialDashboard].[CurrencyStr] AS [CurrencyStr]
+    FROM [dbo].[PartsPotentialDashboard] AS [PartsPotentialDashboard]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PartsPotentialStandardCategory" EntityType="Self.PartsPotentialStandardCategory" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PartsPotentialStandardCategory].[ID] AS [ID], 
+    [PartsPotentialStandardCategory].[CategoryName] AS [CategoryName], 
+    [PartsPotentialStandardCategory].[MarketPotential] AS [MarketPotential], 
+    [PartsPotentialStandardCategory].[MarketPotentialDatabase%] AS [MarketPotentialDatabase%], 
+    [PartsPotentialStandardCategory].[CountryStr] AS [CountryStr], 
+    [PartsPotentialStandardCategory].[CurrencyStr] AS [CurrencyStr]
+    FROM [dbo].[PartsPotentialStandardCategory] AS [PartsPotentialStandardCategory]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PartsPotentialVIOCoverageAge" EntityType="Self.PartsPotentialVIOCoverageAge" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PartsPotentialVIOCoverageAge].[ID] AS [ID], 
+    [PartsPotentialVIOCoverageAge].[DistributionLevel] AS [DistributionLevel], 
+    [PartsPotentialVIOCoverageAge].[AGEDistribution%] AS [AGEDistribution%], 
+    [PartsPotentialVIOCoverageAge].[CountryStr] AS [CountryStr], 
+    [PartsPotentialVIOCoverageAge].[CurrencyStr] AS [CurrencyStr]
+    FROM [dbo].[PartsPotentialVIOCoverageAge] AS [PartsPotentialVIOCoverageAge]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PartsPotentialVIOCoverageAgeGlobal" EntityType="Self.PartsPotentialVIOCoverageAgeGlobal" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PartsPotentialVIOCoverageAgeGlobal].[ID] AS [ID], 
+    [PartsPotentialVIOCoverageAgeGlobal].[DistributionLevel] AS [DistributionLevel], 
+    [PartsPotentialVIOCoverageAgeGlobal].[AGEDistribution%] AS [AGEDistribution%], 
+    [PartsPotentialVIOCoverageAgeGlobal].[CountryStr] AS [CountryStr], 
+    [PartsPotentialVIOCoverageAgeGlobal].[CurrencyStr] AS [CurrencyStr]
+    FROM [dbo].[PartsPotentialVIOCoverageAgeGlobal] AS [PartsPotentialVIOCoverageAgeGlobal]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PartsPotentialVIOCoverageBrand" EntityType="Self.PartsPotentialVIOCoverageBrand" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PartsPotentialVIOCoverageBrand].[ID] AS [ID], 
+    [PartsPotentialVIOCoverageBrand].[Brand] AS [Brand], 
+    [PartsPotentialVIOCoverageBrand].[Distribution%] AS [Distribution%], 
+    [PartsPotentialVIOCoverageBrand].[VIOCoverage] AS [VIOCoverage], 
+    [PartsPotentialVIOCoverageBrand].[CountryStr] AS [CountryStr], 
+    [PartsPotentialVIOCoverageBrand].[CurrencyStr] AS [CurrencyStr]
+    FROM [dbo].[PartsPotentialVIOCoverageBrand] AS [PartsPotentialVIOCoverageBrand]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PartsPotentialVIOCoverageBrandGlobal" EntityType="Self.PartsPotentialVIOCoverageBrandGlobal" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PartsPotentialVIOCoverageBrandGlobal].[ID] AS [ID], 
+    [PartsPotentialVIOCoverageBrandGlobal].[Brand] AS [Brand], 
+    [PartsPotentialVIOCoverageBrandGlobal].[Distribution%] AS [Distribution%], 
+    [PartsPotentialVIOCoverageBrandGlobal].[VIOCoverage] AS [VIOCoverage], 
+    [PartsPotentialVIOCoverageBrandGlobal].[CountryStr] AS [CountryStr], 
+    [PartsPotentialVIOCoverageBrandGlobal].[CurrencyStr] AS [CurrencyStr]
+    FROM [dbo].[PartsPotentialVIOCoverageBrandGlobal] AS [PartsPotentialVIOCoverageBrandGlobal]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="t_IntelligenceViewData" EntityType="Self.t_IntelligenceViewData" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [t_IntelligenceViewData].[ID] AS [ID], 
+    [t_IntelligenceViewData].[CountryStr] AS [CountryStr], 
+    [t_IntelligenceViewData].[Country] AS [Country], 
+    [t_IntelligenceViewData].[CurrencyCode] AS [CurrencyCode], 
+    [t_IntelligenceViewData].[CustomerPartId] AS [CustomerPartId], 
+    [t_IntelligenceViewData].[PartNo] AS [PartNo], 
+    [t_IntelligenceViewData].[Description] AS [Description], 
+    [t_IntelligenceViewData].[Category] AS [Category], 
+    [t_IntelligenceViewData].[SubCategory] AS [SubCategory], 
+    [t_IntelligenceViewData].[VehicleName] AS [VehicleName], 
+    [t_IntelligenceViewData].[List Price] AS [List Price], 
+    [t_IntelligenceViewData].[ACP/Online Price] AS [ACP/Online Price], 
+    [t_IntelligenceViewData].[NET Price] AS [NET Price], 
+    [t_IntelligenceViewData].[Core Price] AS [Core Price], 
+    [t_IntelligenceViewData].[Installer Price] AS [Installer Price], 
+    [t_IntelligenceViewData].[OEMAvgList Price] AS [OEMAvgList Price], 
+    [t_IntelligenceViewData].[OEMAvgACP/Online Price] AS [OEMAvgACP/Online Price], 
+    [t_IntelligenceViewData].[OEMAvgNET Price] AS [OEMAvgNET Price], 
+    [t_IntelligenceViewData].[OEMAvgCore Price] AS [OEMAvgCore Price], 
+    [t_IntelligenceViewData].[OEMAvgInstaller Price] AS [OEMAvgInstaller Price], 
+    [t_IntelligenceViewData].[IAMAvgList Price] AS [IAMAvgList Price], 
+    [t_IntelligenceViewData].[IAMAvgACP/Online Price] AS [IAMAvgACP/Online Price], 
+    [t_IntelligenceViewData].[IAMAvgNET Price] AS [IAMAvgNET Price], 
+    [t_IntelligenceViewData].[IAMAvgCore Price] AS [IAMAvgCore Price], 
+    [t_IntelligenceViewData].[IAMAvgInstaller Price] AS [IAMAvgInstaller Price], 
+    [t_IntelligenceViewData].[VIO Demand] AS [VIO Demand], 
+    [t_IntelligenceViewData].[Market Potential] AS [Market Potential], 
+    [t_IntelligenceViewData].[Market Share] AS [Market Share], 
+    [t_IntelligenceViewData].[Customer 12M Sales] AS [Customer 12M Sales], 
+    [t_IntelligenceViewData].[OEM Price Trend] AS [OEM Price Trend], 
+    [t_IntelligenceViewData].[IAM Price Trend] AS [IAM Price Trend], 
+    [t_IntelligenceViewData].[VIO Demand Trend] AS [VIO Demand Trend], 
+    [t_IntelligenceViewData].[Market Potential Trend] AS [Market Potential Trend], 
+    [t_IntelligenceViewData].[Market Share Trend] AS [Market Share Trend], 
+    [t_IntelligenceViewData].[Customer 12M Sales Trend] AS [Customer 12M Sales Trend], 
+    [t_IntelligenceViewData].[CurrencyStr] AS [CurrencyStr]
+    FROM [dbo].[t_IntelligenceViewData] AS [t_IntelligenceViewData]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DistributorPrice" EntityType="Self.DistributorPrice" store:Type="Tables" store:Schema="whidata">
+            <DefiningQuery>SELECT 
+    [DistributorPrice].[Id] AS [Id], 
+    [DistributorPrice].[RefID] AS [RefID], 
+    [DistributorPrice].[PriceValue] AS [PriceValue], 
+    [DistributorPrice].[PriceTypeID] AS [PriceTypeID], 
+    [DistributorPrice].[PriceDate] AS [PriceDate], 
+    [DistributorPrice].[CountryId] AS [CountryId], 
+    [DistributorPrice].[CurrencyId] AS [CurrencyId]
+    FROM [whidata].[DistributorPrice] AS [DistributorPrice]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="WHIAppConfig" EntityType="Self.WHIAppConfig" store:Type="Tables" store:Schema="whidata">
+            <DefiningQuery>SELECT 
+    [WHIAppConfig].[Id] AS [Id], 
+    [WHIAppConfig].[DBString] AS [DBString], 
+    [WHIAppConfig].[Condition] AS [Condition], 
+    [WHIAppConfig].[ConditionValue] AS [ConditionValue]
+    FROM [whidata].[WHIAppConfig] AS [WHIAppConfig]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ReferenceData" EntityType="Self.ReferenceData" store:Type="Views" store:Schema="whidata">
+            <DefiningQuery>SELECT 
+    [ReferenceData].[PartID] AS [PartID], 
+    [ReferenceData].[Partnumber] AS [Partnumber], 
+    [ReferenceData].[Wholesaler] AS [Wholesaler], 
+    [ReferenceData].[Brand] AS [Brand], 
+    [ReferenceData].[PartDescription] AS [PartDescription]
+    FROM [whidata].[ReferenceData] AS [ReferenceData]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MarketShareModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CategoryView">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="PartNumber" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="VIODemand" Type="Int32" />
+          <Property Name="MarketPotential" Type="Int32" />
+          <Property Name="Customer_12M_Sales" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Market_Share__" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CountryStr" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CurrencyStr" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ModelViewAgeDistribution">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="MarketPotential" Type="Int32" />
+          <Property Name="VIODemand" Type="Int32" />
+          <Property Name="CountryStr" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CurrencyStr" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Category" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ModelViewGlobal">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="Make" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="VIODemand" Type="Int64" />
+          <Property Name="MarketPotential" Type="Int64" />
+          <Property Name="CountryStr" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CurrencyStr" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PartsPotentialCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Database_" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PartCount" Type="Int32" />
+          <Property Name="RevCoverage" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MarketShare_" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CountryStr" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CurrencyStr" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PartsPotentialStandardCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="MarketPotential" Type="Int32" />
+          <Property Name="MarketPotentialDatabase_" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CountryStr" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CurrencyStr" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PartsPotentialVIOCoverageAge">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DistributionLevel" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AGEDistribution_" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CountryStr" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CurrencyStr" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PartsPotentialVIOCoverageAgeGlobal">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DistributionLevel" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AGEDistribution_" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CountryStr" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CurrencyStr" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PartsPotentialVIOCoverageBrand">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Brand" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Distribution_" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="VIOCoverage" Type="Int32" />
+          <Property Name="CountryStr" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CurrencyStr" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PartsPotentialVIOCoverageBrandGlobal">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Brand" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Distribution_" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="VIOCoverage" Type="Int32" />
+          <Property Name="CountryStr" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CurrencyStr" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="t_IntelligenceViewData">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="CountryStr" />
+            <PropertyRef Name="Country" />
+            <PropertyRef Name="CurrencyCode" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryStr" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CurrencyCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CustomerPartId" Type="Int64" />
+          <Property Name="PartNo" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Category" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="SubCategory" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="VehicleName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="List_Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ACP_Online_Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="NET_Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Core_Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Installer_Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="OEMAvgList_Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="OEMAvgACP_Online_Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="OEMAvgNET_Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="OEMAvgCore_Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="OEMAvgInstaller_Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IAMAvgList_Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IAMAvgACP_Online_Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IAMAvgNET_Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IAMAvgCore_Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IAMAvgInstaller_Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="VIO_Demand" Type="Int32" />
+          <Property Name="Market_Potential" Type="Int32" />
+          <Property Name="Market_Share" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Customer_12M_Sales" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="OEM_Price_Trend" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IAM_Price_Trend" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="VIO_Demand_Trend" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Market_Potential_Trend" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Market_Share_Trend" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Customer_12M_Sales_Trend" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CurrencyStr" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="MarketShareEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CategoryViews" EntityType="Self.CategoryView" />
+          <EntitySet Name="ModelViewAgeDistributions" EntityType="Self.ModelViewAgeDistribution" />
+          <EntitySet Name="ModelViewGlobals" EntityType="Self.ModelViewGlobal" />
+          <EntitySet Name="PartsPotentialCategories" EntityType="Self.PartsPotentialCategory" />
+          <EntitySet Name="PartsPotentialStandardCategories" EntityType="Self.PartsPotentialStandardCategory" />
+          <EntitySet Name="PartsPotentialVIOCoverageAges" EntityType="Self.PartsPotentialVIOCoverageAge" />
+          <EntitySet Name="PartsPotentialVIOCoverageAgeGlobals" EntityType="Self.PartsPotentialVIOCoverageAgeGlobal" />
+          <EntitySet Name="PartsPotentialVIOCoverageBrands" EntityType="Self.PartsPotentialVIOCoverageBrand" />
+          <EntitySet Name="PartsPotentialVIOCoverageBrandGlobals" EntityType="Self.PartsPotentialVIOCoverageBrandGlobal" />
+          <EntitySet Name="t_IntelligenceViewData" EntityType="Self.t_IntelligenceViewData" />
+          <EntitySet Name="PartNumberViews" EntityType="MarketShareModel.PartNumberView" />
+          <EntitySet Name="ModelViewPartNumbers" EntityType="MarketShareModel.ModelViewPartNumber" />
+          <FunctionImport Name="InsertGenerator">
+            <Parameter Name="schemaName" Mode="In" Type="String" />
+            <Parameter Name="tableName" Mode="In" Type="String" />
+            <Parameter Name="IncludePrimaryKeyIdentity" Mode="In" Type="Boolean" />
+            <Parameter Name="IncludeNonPrimaryKeyIdentity" Mode="In" Type="Boolean" />
+            <Parameter Name="IncludeIfNotExists" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_getVechileYears" ReturnType="Collection(Int32)">
+          <Parameter Name="Country" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_getVehiclesMake" ReturnType="Collection(String)">
+            <Parameter Name="Country" Mode="In" Type="String" />
+            <Parameter Name="Year" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_getVehiclesYear" ReturnType="Collection(Int32)">
+          <Parameter Name="Country" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_getVehiclesModel" ReturnType="Collection(String)">
+            <Parameter Name="Country" Mode="In" Type="String" />
+            <Parameter Name="Year" Mode="In" Type="String" />
+            <Parameter Name="Make" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_getVehiclesEngine" ReturnType="Collection(String)">
+            <Parameter Name="Country" Mode="In" Type="String" />
+            <Parameter Name="Year" Mode="In" Type="String" />
+            <Parameter Name="Make" Mode="In" Type="String" />
+            <Parameter Name="Model" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_getVehiclesdata" ReturnType="Collection(MarketShareModel.usp_getVehiclesdata_Result)">
+            <Parameter Name="Country" Mode="In" Type="String" />
+            <Parameter Name="Year" Mode="In" Type="String" />
+            <Parameter Name="Make" Mode="In" Type="String" />
+            <Parameter Name="Model" Mode="In" Type="String" />
+            <Parameter Name="Engine" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="PartsPotentialDashboards" EntityType="MarketShareModel.PartsPotentialDashboard" />
+          <EntitySet Name="DistributorPriceAggregations" EntityType="MarketShareModel.DistributorPriceAggregation" />
+          <EntitySet Name="ReferenceDatas" EntityType="MarketShareModel.ReferenceData" />
+          <EntitySet Name="DistributorPrices" EntityType="MarketShareModel.DistributorPrice" />
+          <EntitySet Name="Countries" EntityType="MarketShareModel.Country" />
+          <EntitySet Name="Currencies" EntityType="MarketShareModel.Currency" />
+          <EntitySet Name="WHIAppConfigs" EntityType="MarketShareModel.WHIAppConfig" />
+        </EntityContainer>
+        <EntityType Name="PartNumberView">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="PartNumber" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="Make" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SubModel" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="VIODemand" Type="Int32" />
+          <Property Name="MarketPotential" Type="Int32" />
+          <Property Name="Customer_12M_Sales_Market_Share" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Customer_12M_Sales_Distribution" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Customer_12M_Sales" Type="Int32" />
+          <Property Name="CountryStr" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CurrencyStr" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ModelViewPartNumber">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="PartNumber" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="Make" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SubModel" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="VIODemand" Type="Int32" />
+          <Property Name="MarketPotential" Type="Int32" />
+          <Property Name="Sum_of_Customer_12M_Sales_Market_Share" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Customer_12M_Sales_Distribution" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CountryStr" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CurrencyStr" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Customer_12M_Sales" Type="Int32" />
+        </EntityType>
+        <ComplexType Name="usp_getVehiclesdata_Result">
+          <Property Type="String" Name="PartNumber" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="SubCategoryName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="PartTerminologyName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="YearID" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="MakeName" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="ModelName" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Engine" Nullable="false" MaxLength="519" />
+          <Property Type="String" Name="Brand" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Price" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="CorePrice" Nullable="true" MaxLength="250" />
+          <Property Type="DateTime" Name="PriceDate" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="PartsPotentialDashboard">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dashboard" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="VIOCoverage" Type="Int32" />
+          <Property Name="MarketPotential" Type="Int32" />
+          <Property Name="PartGroup" Type="Int32" />
+          <Property Name="PartNumber" Type="Int32" />
+          <Property Name="VehicleCount" Type="Int32" />
+          <Property Name="RevenueCoverage" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MarketShare" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CountryStr" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CurrencyStr" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DistributorPriceAggregation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RefId" Type="Int64" Nullable="false" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <Property Name="CurrencyId" Type="Int32" Nullable="false" />
+          <Property Name="PriceTypeId" Type="Int32" Nullable="false" />
+          <Property Name="TransactionCount" Type="Int32" />
+          <Property Name="MinimumPrice" Type="Decimal" Precision="18" Scale="6" />
+          <Property Name="MaximumPrice" Type="Decimal" Precision="18" Scale="6" />
+          <Property Name="AveragePrice" Type="Decimal" Precision="18" Scale="6" />
+          <Property Name="MedianPrice" Type="Decimal" Precision="18" Scale="6" />
+        </EntityType>
+        <EntityType Name="ReferenceData">
+          <Key>
+            <PropertyRef Name="PartID" />
+            <PropertyRef Name="Wholesaler" />
+            <PropertyRef Name="Brand" />
+          </Key>
+          <Property Name="PartID" Type="Int64" Nullable="false" />
+          <Property Name="Partnumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Wholesaler" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Brand" Type="String" Nullable="false" MaxLength="378" FixedLength="false" Unicode="true" />
+          <Property Name="PartDescription" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DistributorPrice">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="RefID" />
+            <PropertyRef Name="PriceValue" />
+            <PropertyRef Name="PriceTypeID" />
+            <PropertyRef Name="PriceDate" />
+            <PropertyRef Name="CountryId" />
+            <PropertyRef Name="CurrencyId" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RefID" Type="Int64" Nullable="false" />
+          <Property Name="PriceValue" Type="Decimal" Nullable="false" Precision="18" Scale="6" />
+          <Property Name="PriceTypeID" Type="Int32" Nullable="false" />
+          <Property Name="PriceDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <Property Name="CurrencyId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="CountryCode" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DefaultCurrencyCode" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Currency">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="CurrencyCode" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="WHIAppConfig">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="DBString" />
+            <PropertyRef Name="Condition" />
+            <PropertyRef Name="ConditionValue" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DBString" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Condition" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ConditionValue" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MarketShareModelStoreContainer" CdmEntityContainer="MarketShareEntities">
+          <EntitySetMapping Name="CategoryViews">
+            <EntityTypeMapping TypeName="MarketShareModel.CategoryView">
+              <MappingFragment StoreEntitySet="CategoryView">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="VIODemand" ColumnName="VIODemand" />
+                <ScalarProperty Name="MarketPotential" ColumnName="MarketPotential" />
+                <ScalarProperty Name="Customer_12M_Sales" ColumnName="Customer 12M Sales" />
+                <ScalarProperty Name="Market_Share__" ColumnName="Market Share %" />
+                <ScalarProperty Name="CountryStr" ColumnName="CountryStr" />
+                <ScalarProperty Name="CurrencyStr" ColumnName="CurrencyStr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ModelViewAgeDistributions">
+            <EntityTypeMapping TypeName="MarketShareModel.ModelViewAgeDistribution">
+              <MappingFragment StoreEntitySet="ModelViewAgeDistribution">
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="MarketPotential" ColumnName="MarketPotential" />
+                <ScalarProperty Name="VIODemand" ColumnName="VIODemand" />
+                <ScalarProperty Name="CountryStr" ColumnName="CountryStr" />
+                <ScalarProperty Name="CurrencyStr" ColumnName="CurrencyStr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ModelViewGlobals">
+            <EntityTypeMapping TypeName="MarketShareModel.ModelViewGlobal">
+              <MappingFragment StoreEntitySet="ModelViewGlobal">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Make" ColumnName="Make" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="VIODemand" ColumnName="VIODemand" />
+                <ScalarProperty Name="MarketPotential" ColumnName="MarketPotential" />
+                <ScalarProperty Name="CountryStr" ColumnName="CountryStr" />
+                <ScalarProperty Name="CurrencyStr" ColumnName="CurrencyStr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PartsPotentialCategories">
+            <EntityTypeMapping TypeName="MarketShareModel.PartsPotentialCategory">
+              <MappingFragment StoreEntitySet="PartsPotentialCategory">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="Database_" ColumnName="Database%" />
+                <ScalarProperty Name="PartCount" ColumnName="PartCount" />
+                <ScalarProperty Name="RevCoverage" ColumnName="RevCoverage" />
+                <ScalarProperty Name="MarketShare_" ColumnName="MarketShare%" />
+                <ScalarProperty Name="CountryStr" ColumnName="CountryStr" />
+                <ScalarProperty Name="CurrencyStr" ColumnName="CurrencyStr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PartsPotentialStandardCategories">
+            <EntityTypeMapping TypeName="MarketShareModel.PartsPotentialStandardCategory">
+              <MappingFragment StoreEntitySet="PartsPotentialStandardCategory">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="MarketPotential" ColumnName="MarketPotential" />
+                <ScalarProperty Name="MarketPotentialDatabase_" ColumnName="MarketPotentialDatabase%" />
+                <ScalarProperty Name="CountryStr" ColumnName="CountryStr" />
+                <ScalarProperty Name="CurrencyStr" ColumnName="CurrencyStr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PartsPotentialVIOCoverageAges">
+            <EntityTypeMapping TypeName="MarketShareModel.PartsPotentialVIOCoverageAge">
+              <MappingFragment StoreEntitySet="PartsPotentialVIOCoverageAge">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DistributionLevel" ColumnName="DistributionLevel" />
+                <ScalarProperty Name="AGEDistribution_" ColumnName="AGEDistribution%" />
+                <ScalarProperty Name="CountryStr" ColumnName="CountryStr" />
+                <ScalarProperty Name="CurrencyStr" ColumnName="CurrencyStr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PartsPotentialVIOCoverageAgeGlobals">
+            <EntityTypeMapping TypeName="MarketShareModel.PartsPotentialVIOCoverageAgeGlobal">
+              <MappingFragment StoreEntitySet="PartsPotentialVIOCoverageAgeGlobal">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DistributionLevel" ColumnName="DistributionLevel" />
+                <ScalarProperty Name="AGEDistribution_" ColumnName="AGEDistribution%" />
+                <ScalarProperty Name="CountryStr" ColumnName="CountryStr" />
+                <ScalarProperty Name="CurrencyStr" ColumnName="CurrencyStr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PartsPotentialVIOCoverageBrands">
+            <EntityTypeMapping TypeName="MarketShareModel.PartsPotentialVIOCoverageBrand">
+              <MappingFragment StoreEntitySet="PartsPotentialVIOCoverageBrand">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="Distribution_" ColumnName="Distribution%" />
+                <ScalarProperty Name="VIOCoverage" ColumnName="VIOCoverage" />
+                <ScalarProperty Name="CountryStr" ColumnName="CountryStr" />
+                <ScalarProperty Name="CurrencyStr" ColumnName="CurrencyStr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PartsPotentialVIOCoverageBrandGlobals">
+            <EntityTypeMapping TypeName="MarketShareModel.PartsPotentialVIOCoverageBrandGlobal">
+              <MappingFragment StoreEntitySet="PartsPotentialVIOCoverageBrandGlobal">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="Distribution_" ColumnName="Distribution%" />
+                <ScalarProperty Name="VIOCoverage" ColumnName="VIOCoverage" />
+                <ScalarProperty Name="CountryStr" ColumnName="CountryStr" />
+                <ScalarProperty Name="CurrencyStr" ColumnName="CurrencyStr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_IntelligenceViewData">
+            <EntityTypeMapping TypeName="MarketShareModel.t_IntelligenceViewData">
+              <MappingFragment StoreEntitySet="t_IntelligenceViewData">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CountryStr" ColumnName="CountryStr" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+                <ScalarProperty Name="CustomerPartId" ColumnName="CustomerPartId" />
+                <ScalarProperty Name="PartNo" ColumnName="PartNo" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="SubCategory" ColumnName="SubCategory" />
+                <ScalarProperty Name="VehicleName" ColumnName="VehicleName" />
+                <ScalarProperty Name="List_Price" ColumnName="List Price" />
+                <ScalarProperty Name="ACP_Online_Price" ColumnName="ACP/Online Price" />
+                <ScalarProperty Name="NET_Price" ColumnName="NET Price" />
+                <ScalarProperty Name="Core_Price" ColumnName="Core Price" />
+                <ScalarProperty Name="Installer_Price" ColumnName="Installer Price" />
+                <ScalarProperty Name="OEMAvgList_Price" ColumnName="OEMAvgList Price" />
+                <ScalarProperty Name="OEMAvgACP_Online_Price" ColumnName="OEMAvgACP/Online Price" />
+                <ScalarProperty Name="OEMAvgNET_Price" ColumnName="OEMAvgNET Price" />
+                <ScalarProperty Name="OEMAvgCore_Price" ColumnName="OEMAvgCore Price" />
+                <ScalarProperty Name="OEMAvgInstaller_Price" ColumnName="OEMAvgInstaller Price" />
+                <ScalarProperty Name="IAMAvgList_Price" ColumnName="IAMAvgList Price" />
+                <ScalarProperty Name="IAMAvgACP_Online_Price" ColumnName="IAMAvgACP/Online Price" />
+                <ScalarProperty Name="IAMAvgNET_Price" ColumnName="IAMAvgNET Price" />
+                <ScalarProperty Name="IAMAvgCore_Price" ColumnName="IAMAvgCore Price" />
+                <ScalarProperty Name="IAMAvgInstaller_Price" ColumnName="IAMAvgInstaller Price" />
+                <ScalarProperty Name="VIO_Demand" ColumnName="VIO Demand" />
+                <ScalarProperty Name="Market_Potential" ColumnName="Market Potential" />
+                <ScalarProperty Name="Market_Share" ColumnName="Market Share" />
+                <ScalarProperty Name="Customer_12M_Sales" ColumnName="Customer 12M Sales" />
+                <ScalarProperty Name="OEM_Price_Trend" ColumnName="OEM Price Trend" />
+                <ScalarProperty Name="IAM_Price_Trend" ColumnName="IAM Price Trend" />
+                <ScalarProperty Name="VIO_Demand_Trend" ColumnName="VIO Demand Trend" />
+                <ScalarProperty Name="Market_Potential_Trend" ColumnName="Market Potential Trend" />
+                <ScalarProperty Name="Market_Share_Trend" ColumnName="Market Share Trend" />
+                <ScalarProperty Name="Customer_12M_Sales_Trend" ColumnName="Customer 12M Sales Trend" />
+                <ScalarProperty Name="CurrencyStr" ColumnName="CurrencyStr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PartNumberViews">
+            <EntityTypeMapping TypeName="MarketShareModel.PartNumberView">
+              <MappingFragment StoreEntitySet="PartNumberView">
+                <ScalarProperty Name="CurrencyStr" ColumnName="CurrencyStr" />
+                <ScalarProperty Name="CountryStr" ColumnName="CountryStr" />
+                <ScalarProperty Name="Customer_12M_Sales" ColumnName="Customer 12M Sales" />
+                <ScalarProperty Name="Customer_12M_Sales_Distribution" ColumnName="Customer 12M Sales Distribution" />
+                <ScalarProperty Name="Customer_12M_Sales_Market_Share" ColumnName="Customer 12M Sales Market Share" />
+                <ScalarProperty Name="MarketPotential" ColumnName="MarketPotential" />
+                <ScalarProperty Name="VIODemand" ColumnName="VIODemand" />
+                <ScalarProperty Name="SubModel" ColumnName="SubModel" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Make" ColumnName="Make" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ModelViewPartNumbers">
+            <EntityTypeMapping TypeName="MarketShareModel.ModelViewPartNumber">
+              <MappingFragment StoreEntitySet="ModelViewPartNumber">
+                <ScalarProperty Name="Customer_12M_Sales" ColumnName="Customer 12M Sales" />
+                <ScalarProperty Name="CurrencyStr" ColumnName="CurrencyStr" />
+                <ScalarProperty Name="CountryStr" ColumnName="CountryStr" />
+                <ScalarProperty Name="Customer_12M_Sales_Distribution" ColumnName="Customer 12M Sales Distribution" />
+                <ScalarProperty Name="Sum_of_Customer_12M_Sales_Market_Share" ColumnName="Sum of Customer 12M Sales Market Share" />
+                <ScalarProperty Name="MarketPotential" ColumnName="MarketPotential" />
+                <ScalarProperty Name="VIODemand" ColumnName="VIODemand" />
+                <ScalarProperty Name="SubModel" ColumnName="SubModel" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Make" ColumnName="Make" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PartsPotentialDashboards">
+            <EntityTypeMapping TypeName="MarketShareModel.PartsPotentialDashboard">
+              <MappingFragment StoreEntitySet="PartsPotentialDashboard">
+                <ScalarProperty Name="CurrencyStr" ColumnName="CurrencyStr" />
+                <ScalarProperty Name="CountryStr" ColumnName="CountryStr" />
+                <ScalarProperty Name="MarketShare" ColumnName="MarketShare" />
+                <ScalarProperty Name="RevenueCoverage" ColumnName="RevenueCoverage" />
+                <ScalarProperty Name="VehicleCount" ColumnName="VehicleCount" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="PartGroup" ColumnName="PartGroup" />
+                <ScalarProperty Name="MarketPotential" ColumnName="MarketPotential" />
+                <ScalarProperty Name="VIOCoverage" ColumnName="VIOCoverage" />
+                <ScalarProperty Name="Dashboard" ColumnName="Dashboard" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DistributorPriceAggregations">
+            <EntityTypeMapping TypeName="MarketShareModel.DistributorPriceAggregation">
+              <MappingFragment StoreEntitySet="DistributorPriceAggregation">
+                <ScalarProperty Name="MedianPrice" ColumnName="MedianPrice" />
+                <ScalarProperty Name="AveragePrice" ColumnName="AveragePrice" />
+                <ScalarProperty Name="MaximumPrice" ColumnName="MaximumPrice" />
+                <ScalarProperty Name="MinimumPrice" ColumnName="MinimumPrice" />
+                <ScalarProperty Name="TransactionCount" ColumnName="TransactionCount" />
+                <ScalarProperty Name="PriceTypeId" ColumnName="PriceTypeId" />
+                <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="RefId" ColumnName="RefId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReferenceDatas">
+            <EntityTypeMapping TypeName="MarketShareModel.ReferenceData">
+              <MappingFragment StoreEntitySet="ReferenceData">
+                <ScalarProperty Name="PartDescription" ColumnName="PartDescription" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="Wholesaler" ColumnName="Wholesaler" />
+                <ScalarProperty Name="Partnumber" ColumnName="Partnumber" />
+                <ScalarProperty Name="PartID" ColumnName="PartID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DistributorPrices">
+            <EntityTypeMapping TypeName="MarketShareModel.DistributorPrice">
+              <MappingFragment StoreEntitySet="DistributorPrice">
+                <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="PriceDate" ColumnName="PriceDate" />
+                <ScalarProperty Name="PriceTypeID" ColumnName="PriceTypeID" />
+                <ScalarProperty Name="PriceValue" ColumnName="PriceValue" />
+                <ScalarProperty Name="RefID" ColumnName="RefID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="MarketShareModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="DefaultCurrencyCode" ColumnName="DefaultCurrencyCode" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Currencies">
+            <EntityTypeMapping TypeName="MarketShareModel.Currency">
+              <MappingFragment StoreEntitySet="Currency">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WHIAppConfigs">
+            <EntityTypeMapping TypeName="MarketShareModel.WHIAppConfig">
+              <MappingFragment StoreEntitySet="WHIAppConfig">
+                <ScalarProperty Name="ConditionValue" ColumnName="ConditionValue" />
+                <ScalarProperty Name="Condition" ColumnName="Condition" />
+                <ScalarProperty Name="DBString" ColumnName="DBString" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

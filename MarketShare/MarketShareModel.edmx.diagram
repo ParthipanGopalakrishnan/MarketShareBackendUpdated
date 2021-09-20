@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1e0b7e8bf68d4237b698bbcf29f81df2" Name="Diagram1">
+        <EntityTypeShape EntityType="MarketShareModel.CategoryView" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketShareModel.ModelViewAgeDistribution" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketShareModel.ModelViewGlobal" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketShareModel.PartsPotentialCategory" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketShareModel.PartsPotentialStandardCategory" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketShareModel.PartsPotentialVIOCoverageAge" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketShareModel.PartsPotentialVIOCoverageAgeGlobal" Width="1.5" PointX="6.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketShareModel.PartsPotentialVIOCoverageBrand" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketShareModel.PartsPotentialVIOCoverageBrandGlobal" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketShareModel.t_IntelligenceViewData" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketShareModel.PartNumberView" Width="1.5" PointX="3.375" PointY="7.75" />
+        <EntityTypeShape EntityType="MarketShareModel.ModelViewPartNumber" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="MarketShareModel.PartsPotentialDashboard" Width="1.5" PointX="5.375" PointY="10.75" />
+        <EntityTypeShape EntityType="MarketShareModel.DistributorPriceAggregation" Width="2.75" PointX="11.375" PointY="0.75" />
+        <EntityTypeShape EntityType="MarketShareModel.ReferenceData" Width="2.25" PointX="11.375" PointY="8.75" />
+        <EntityTypeShape EntityType="MarketShareModel.DistributorPrice" Width="2.25" PointX="11.375" PointY="4.75" />
+        <EntityTypeShape EntityType="MarketShareModel.Country" Width="2" PointX="11.375" PointY="11.75" />
+        <EntityTypeShape EntityType="MarketShareModel.Currency" Width="2" PointX="13.75" PointY="11.625" />
+        <EntityTypeShape EntityType="MarketShareModel.WHIAppConfig" Width="1.875" PointX="3.375" PointY="14.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
