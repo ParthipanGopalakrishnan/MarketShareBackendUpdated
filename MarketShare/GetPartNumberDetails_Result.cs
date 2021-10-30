@@ -10,9 +10,8 @@
 namespace MarketShare
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class PartNumberView
+    public partial class GetPartNumberDetails_Result
     {
         public int ID { get; set; }
         public string Category { get; set; }
@@ -23,12 +22,12 @@ namespace MarketShare
         public string SubModel { get; set; }
         public Nullable<int> VIODemand { get; set; }
         public Nullable<int> MarketPotential { get; set; }
+        public Nullable<int> Customer_12M_Sales { get; set; }
         public Nullable<decimal> Customer_12M_Sales_Market_Share { get; set; }
         public Nullable<decimal> Customer_12M_Sales_Distribution { get; set; }
-        public Nullable<int> Customer_12M_Sales { get; set; }
+        public string SuperSessionData { get; set; }
         public string CountryStr { get; set; }
         public string CurrencyStr { get; set; }
-        public string SuperSessionData { get; set; }
         public Nullable<int> PartId { get; set; }
     }
 }

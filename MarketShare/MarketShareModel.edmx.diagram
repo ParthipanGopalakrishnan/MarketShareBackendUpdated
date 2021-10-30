@@ -24,6 +24,7 @@
         <EntityTypeShape EntityType="MarketShareModel.Country" Width="2" PointX="11.375" PointY="11.75" />
         <EntityTypeShape EntityType="MarketShareModel.Currency" Width="2" PointX="13.75" PointY="11.625" />
         <EntityTypeShape EntityType="MarketShareModel.WHIAppConfig" Width="1.875" PointX="3.375" PointY="14.75" />
+        <EntityTypeShape EntityType="MarketShareModel.SupersessionPart" Width="1.5" PointX="14.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

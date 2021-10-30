@@ -58,7 +58,7 @@ warning 6002: The table/view 'CPM_C8_DEV.dbo.ModelViewGlobal' does not have a pr
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Category" Type="nvarchar" MaxLength="250" />
           <Property Name="Year" Type="int" />
           <Property Name="Make" Type="nvarchar" MaxLength="250" />
@@ -74,7 +74,7 @@ warning 6002: The table/view 'CPM_C8_DEV.dbo.ModelViewPartNumber' does not have 
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Category" Type="nvarchar" MaxLength="250" />
           <Property Name="PartNumber" Type="nvarchar" MaxLength="250" />
           <Property Name="Year" Type="int" />
@@ -95,7 +95,7 @@ warning 6002: The table/view 'CPM_C8_DEV.dbo.PartNumberView' does not have a pri
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Category" Type="nvarchar" MaxLength="250" />
           <Property Name="PartNumber" Type="nvarchar" MaxLength="250" />
           <Property Name="Year" Type="int" />
@@ -107,8 +107,10 @@ warning 6002: The table/view 'CPM_C8_DEV.dbo.PartNumberView' does not have a pri
           <Property Name="Customer 12M Sales" Type="int" />
           <Property Name="Customer 12M Sales Market Share" Type="numeric" Precision="18" Scale="2" />
           <Property Name="Customer 12M Sales Distribution" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="SuperSessionData" Type="char" MaxLength="1" />
           <Property Name="CountryStr" Type="varchar" MaxLength="2" />
           <Property Name="CurrencyStr" Type="varchar" MaxLength="3" />
+          <Property Name="PartId" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CPM_C8_DEV.dbo.PartsPotentialCategory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -116,7 +118,7 @@ warning 6002: The table/view 'CPM_C8_DEV.dbo.PartsPotentialCategory' does not ha
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CategoryName" Type="nvarchar" MaxLength="250" />
           <Property Name="Database%" Type="numeric" Precision="18" Scale="2" />
           <Property Name="PartCount" Type="int" />
@@ -149,7 +151,7 @@ warning 6002: The table/view 'CPM_C8_DEV.dbo.PartsPotentialStandardCategory' doe
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CategoryName" Type="nvarchar" MaxLength="250" />
           <Property Name="MarketPotential" Type="bigint" />
           <Property Name="MarketPotentialDatabase%" Type="numeric" Precision="18" Scale="2" />
@@ -162,7 +164,7 @@ warning 6002: The table/view 'CPM_C8_DEV.dbo.PartsPotentialVIOCoverageAge' does 
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DistributionLevel" Type="nvarchar" MaxLength="250" />
           <Property Name="AGEDistribution%" Type="numeric" Precision="18" Scale="2" />
           <Property Name="CountryStr" Type="varchar" MaxLength="2" />
@@ -174,7 +176,7 @@ warning 6002: The table/view 'CPM_C8_DEV.dbo.PartsPotentialVIOCoverageAgeGlobal'
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DistributionLevel" Type="nvarchar" MaxLength="250" />
           <Property Name="AGEDistribution%" Type="numeric" Precision="18" Scale="2" />
           <Property Name="CountryStr" Type="varchar" MaxLength="2" />
@@ -186,7 +188,7 @@ warning 6002: The table/view 'CPM_C8_DEV.dbo.PartsPotentialVIOCoverageBrand' doe
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Brand" Type="nvarchar" MaxLength="250" />
           <Property Name="Distribution%" Type="numeric" Precision="18" Scale="2" />
           <Property Name="VIOCoverage" Type="bigint" />
@@ -199,12 +201,20 @@ warning 6002: The table/view 'CPM_C8_DEV.dbo.PartsPotentialVIOCoverageBrandGloba
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Brand" Type="nvarchar" MaxLength="250" />
           <Property Name="Distribution%" Type="numeric" Precision="18" Scale="2" />
           <Property Name="VIOCoverage" Type="bigint" />
           <Property Name="CountryStr" Type="varchar" MaxLength="2" />
           <Property Name="CurrencyStr" Type="varchar" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="SupersessionPart">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PartNumber" Type="nvarchar" MaxLength="250" />
+          <Property Name="PrePartNo" Type="nvarchar" MaxLength="80" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CPM_C8_DEV.dbo.t_IntelligenceViewData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -315,9 +325,15 @@ warning 6002: The table/view 'CPM_C8_DEV.whidata.ReferenceData' does not have a 
           <Property Name="Brand" Type="nvarchar" MaxLength="378" Nullable="false" />
           <Property Name="PartDescription" Type="nvarchar" MaxLength="1000" />
         </EntityType>
+        <Function Name="GetPartNumberDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="suppersession" Type="char" Mode="In" />
+          <Parameter Name="PartNumber" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Category" Type="nvarchar(max)" Mode="In" />
+        </Function>
         <EntityContainer Name="MarketShareModelStoreContainer">
           <EntitySet Name="Country" EntityType="Self.Country" Schema="base" store:Type="Tables" />
           <EntitySet Name="Currency" EntityType="Self.Currency" Schema="base" store:Type="Tables" />
+          <EntitySet Name="SupersessionPart" EntityType="Self.SupersessionPart" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DistributorPriceAggregation" EntityType="Self.DistributorPriceAggregation" Schema="whidata" store:Type="Tables" />
           <EntitySet Name="CategoryView" EntityType="Self.CategoryView" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -388,8 +404,10 @@ warning 6002: The table/view 'CPM_C8_DEV.whidata.ReferenceData' does not have a 
     [PartNumberView].[Customer 12M Sales] AS [Customer 12M Sales], 
     [PartNumberView].[Customer 12M Sales Market Share] AS [Customer 12M Sales Market Share], 
     [PartNumberView].[Customer 12M Sales Distribution] AS [Customer 12M Sales Distribution], 
+    [PartNumberView].[SuperSessionData] AS [SuperSessionData], 
     [PartNumberView].[CountryStr] AS [CountryStr], 
-    [PartNumberView].[CurrencyStr] AS [CurrencyStr]
+    [PartNumberView].[CurrencyStr] AS [CurrencyStr], 
+    [PartNumberView].[PartId] AS [PartId]
     FROM [dbo].[PartNumberView] AS [PartNumberView]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="PartsPotentialCategory" EntityType="Self.PartsPotentialCategory" store:Type="Tables" store:Schema="dbo">
@@ -745,6 +763,12 @@ warning 6002: The table/view 'CPM_C8_DEV.whidata.ReferenceData' does not have a 
           <EntitySet Name="Countries" EntityType="MarketShareModel.Country" />
           <EntitySet Name="Currencies" EntityType="MarketShareModel.Currency" />
           <EntitySet Name="WHIAppConfigs" EntityType="MarketShareModel.WHIAppConfig" />
+          <EntitySet Name="SupersessionParts" EntityType="MarketShareModel.SupersessionPart" />
+          <FunctionImport Name="GetPartNumberDetails" ReturnType="Collection(MarketShareModel.GetPartNumberDetails_Result)" >
+          <Parameter Name="suppersession" Mode="In" Type="String" />
+            <Parameter Name="PartNumber" Mode="In" Type="String" />
+            <Parameter Name="Category" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="PartNumberView">
           <Key>
@@ -764,6 +788,8 @@ warning 6002: The table/view 'CPM_C8_DEV.whidata.ReferenceData' does not have a 
           <Property Name="Customer_12M_Sales" Type="Int32" />
           <Property Name="CountryStr" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
           <Property Name="CurrencyStr" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="SuperSessionData" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="PartId" Type="Int32" />
         </EntityType>
         <EntityType Name="ModelViewPartNumber">
           <Key>
@@ -889,6 +915,32 @@ warning 6002: The table/view 'CPM_C8_DEV.whidata.ReferenceData' does not have a 
           <Property Name="Condition" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="ConditionValue" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="SupersessionPart">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PartNumber" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="PrePartNo" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="GetPartNumberDetails_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Category" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="PartNumber" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="Year" Nullable="true" />
+          <Property Type="String" Name="Make" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Model" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="SubModel" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="VIODemand" Nullable="true" />
+          <Property Type="Int32" Name="MarketPotential" Nullable="true" />
+          <Property Type="Int32" Name="Customer_12M_Sales" Nullable="true" />
+          <Property Type="Decimal" Name="Customer_12M_Sales_Market_Share" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Customer_12M_Sales_Distribution" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="SuperSessionData" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="CountryStr" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="CurrencyStr" Nullable="true" MaxLength="3" />
+          <Property Type="Int32" Name="PartId" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1055,6 +1107,8 @@ warning 6002: The table/view 'CPM_C8_DEV.whidata.ReferenceData' does not have a 
           <EntitySetMapping Name="PartNumberViews">
             <EntityTypeMapping TypeName="MarketShareModel.PartNumberView">
               <MappingFragment StoreEntitySet="PartNumberView">
+                <ScalarProperty Name="PartId" ColumnName="PartId" />
+                <ScalarProperty Name="SuperSessionData" ColumnName="SuperSessionData" />
                 <ScalarProperty Name="CurrencyStr" ColumnName="CurrencyStr" />
                 <ScalarProperty Name="CountryStr" ColumnName="CountryStr" />
                 <ScalarProperty Name="Customer_12M_Sales" ColumnName="Customer 12M Sales" />
@@ -1178,6 +1232,37 @@ warning 6002: The table/view 'CPM_C8_DEV.whidata.ReferenceData' does not have a 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="SupersessionParts">
+            <EntityTypeMapping TypeName="MarketShareModel.SupersessionPart">
+              <MappingFragment StoreEntitySet="SupersessionPart">
+                <ScalarProperty Name="PrePartNo" ColumnName="PrePartNo" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetPartNumberDetails" FunctionName="MarketShareModel.Store.GetPartNumberDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MarketShareModel.GetPartNumberDetails_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Make" ColumnName="Make" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="SubModel" ColumnName="SubModel" />
+                <ScalarProperty Name="VIODemand" ColumnName="VIODemand" />
+                <ScalarProperty Name="MarketPotential" ColumnName="MarketPotential" />
+                <ScalarProperty Name="Customer_12M_Sales" ColumnName="Customer 12M Sales" />
+                <ScalarProperty Name="Customer_12M_Sales_Market_Share" ColumnName="Customer 12M Sales Market Share" />
+                <ScalarProperty Name="Customer_12M_Sales_Distribution" ColumnName="Customer 12M Sales Distribution" />
+                <ScalarProperty Name="SuperSessionData" ColumnName="SuperSessionData" />
+                <ScalarProperty Name="CountryStr" ColumnName="CountryStr" />
+                <ScalarProperty Name="CurrencyStr" ColumnName="CurrencyStr" />
+                <ScalarProperty Name="PartId" ColumnName="PartId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Solutions\PartsPotential\09-05-2021\Solutions\MarketShare\MarketShareModel.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\Eucon\16-09-2021\MarketShare\Backend\MarketShare\MarketShareModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

@@ -46,6 +46,7 @@ namespace MarketShare
         public virtual DbSet<Country> Countries { get; set; }
         public virtual DbSet<Currency> Currencies { get; set; }
         public virtual DbSet<WHIAppConfig> WHIAppConfigs { get; set; }
+        public virtual DbSet<SupersessionPart> SupersessionParts { get; set; }
     
         public virtual int InsertGenerator(string schemaName, string tableName, Nullable<bool> includePrimaryKeyIdentity, Nullable<bool> includeNonPrimaryKeyIdentity, Nullable<bool> includeIfNotExists)
         {
@@ -164,6 +165,23 @@ namespace MarketShare
                 new ObjectParameter("Engine", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_getVehiclesdata_Result>("usp_getVehiclesdata", countryParameter, yearParameter, makeParameter, modelParameter, engineParameter);
+        }
+    
+        public virtual ObjectResult<GetPartNumberDetails_Result> GetPartNumberDetails(string suppersession, string partNumber, string category)
+        {
+            var suppersessionParameter = suppersession != null ?
+                new ObjectParameter("suppersession", suppersession) :
+                new ObjectParameter("suppersession", typeof(string));
+    
+            var partNumberParameter = partNumber != null ?
+                new ObjectParameter("PartNumber", partNumber) :
+                new ObjectParameter("PartNumber", typeof(string));
+    
+            var categoryParameter = category != null ?
+                new ObjectParameter("Category", category) :
+                new ObjectParameter("Category", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetPartNumberDetails_Result>("GetPartNumberDetails", suppersessionParameter, partNumberParameter, categoryParameter);
         }
     }
 }

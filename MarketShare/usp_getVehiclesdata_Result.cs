@@ -13,7 +13,6 @@ namespace MarketShare
     
     public partial class usp_getVehiclesdata_Result
     {
-        public string CustomerPartNumber { get; set; }
         public string PartNumber { get; set; }
         public string Description { get; set; }
         public string CategoryName { get; set; }
@@ -24,16 +23,8 @@ namespace MarketShare
         public string ModelName { get; set; }
         public string Engine { get; set; }
         public string Brand { get; set; }
-        public string Distributor { get; set; }
-        public Nullable<int> TransactionCount { get; set; }
-        public Nullable<decimal> AvgPrice { get; set; }
-        public Nullable<decimal> MedianPrice { get; set; }
-        public Nullable<decimal> MinPrice { get; set; }
-        public Nullable<decimal> MaxPrice { get; set; }
-        public Nullable<decimal> StandardDeviationPrice { get; set; }
-        public Nullable<decimal> VariancePrice { get; set; }
-        public Nullable<decimal> SumPrice { get; set; }
-        public Nullable<decimal> AvgCorePrice { get; set; }
+        public string Price { get; set; }
+        public string CorePrice { get; set; }
         public Nullable<System.DateTime> PriceDate { get; set; }
     }
 }
